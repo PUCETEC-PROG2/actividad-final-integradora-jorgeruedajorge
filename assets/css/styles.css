@@ -1,0 +1,284 @@
+/* 1. Estilos de Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7f6; /* Fondo gris claro */
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Centra el contenedor principal en la pantalla */
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto; /* Centra el bloque naranja en el medio */
+    padding: 40px 20px;
+}
+
+/* Activa la cuadrícula para los 3 elementos de información */
+.bienvenida {
+    display: grid;
+    /* Crea exactamente 3 columnas de igual ancho */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; /* Espacio entre los artículos */
+    margin-top: 30px;
+}
+
+/* Estilo para que cada bloque de información se vea como una tarjeta */
+.informacion {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 2. Barra de Navegación */
+.barra-navegacion {
+    background-color: #2c3e50; /* Azul oscuro */
+    color: white;
+    padding: 15px 0;
+}
+
+.contenedor-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo-navegacion img {
+    height: 60px;
+}
+
+.menu-navegacion {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-navegacion a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-navegacion a:hover, 
+.menu-navegacion a.activo {
+    color: #f39c12; /* Color naranja de acento */
+}
+
+/* 3. Banner Principal (Index) */
+.banner {
+    background-color: #007bff; /* Azul principal */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.boton-accion {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* 4. Cuadrículas (Grillas) */
+/* Aplicable a productos.html, categorias.html y las páginas de categorías específicas */
+.cuadricula-productos, 
+.cuadricula-categorias {
+    display: grid;
+    /* Esto obliga a que siempre haya exactamente 3 columnas de igual ancho */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Espacio entre las tarjetas */
+    margin-top: 30px;
+}
+
+/* Ajuste para las tarjetas individuales */
+.tarjeta-producto, 
+.tarjeta-categoria {
+    width: 100%; /* Ahora el ancho lo controla la rejilla (grid) */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* 5. Tarjetas (Cards) */
+.tarjeta-categoria, 
+.tarjeta-producto, 
+.informacion {
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    width: 300px;
+    padding-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.imagen-producto, 
+.imagen-categoria img {
+    width: 100%;           /* Mantiene el ancho total de la tarjeta */
+    height: 250px;          /* ¡ESTA ES LA CLAVE! La altura se ajusta sola */
+    max-height: 400px;     /* Opcional: para que un libro no sea demasiado largo */
+    object-fit: contain;   /* Muestra la imagen completa sin recortar nada */
+    display: block;        /* Quita espacios en blanco debajo de la imagen */
+    margin: 0 auto;        /* Centra la imagen si es más angosta que la tarjeta */
+}
+
+.info-producto, .info-categoria {
+    padding: 15px;
+}
+
+.precio-producto {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* 6. Formulario de Contacto */
+.seccion-contacto {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+.grupo-formulario {
+    margin-bottom: 15px;
+}
+
+.grupo-formulario label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grupo-formulario input, 
+.grupo-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.mensaje-error {
+    color: #e74c3c;
+    font-size: 0.8rem;
+}
+
+.boton-enviar {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* 7. Pie de Página */
+.pie-pagina {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+/* --- RESPONSIVIDAD --- */
+
+/* 1. TABLETS Y PANTALLAS MEDIANAS (Laptops pequeñas e iPad Mini) */
+/* Rango: de 768px a 1024px */
+@media (max-width: 1024px) {
+    .contenedor {
+        max-width: 95%; /* Aprovecha mejor el ancho en pantallas medianas */
+    }
+
+    .cuadricula-productos, 
+    .cuadricula-categorias {
+        grid-template-columns: repeat(3, 1fr); /* Mantiene 3 columnas para iPad Mini */
+        gap: 15px;
+    }
+
+    .tarjeta-producto, 
+    .tarjeta-categoria, 
+    .informacion {
+        width: 100%; /* Deja que el Grid controle el ancho, eliminando los 300px fijos */
+    }
+}
+
+/* 2. CELULARES GRANDES / TABLETS PEQUEÑAS (Pantallas menores a 768px) */
+@media (max-width: 767px) {
+    /* Ajuste de Navegación */
+    .contenedor-navegacion {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-navegacion {
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Grillas: Bajamos a 2 columnas para que no se vea todo muy apretado */
+    .cuadricula-productos, 
+    .cuadricula-categorias {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .banner {
+        padding: 40px 15px;
+    }
+
+    .banner h1 {
+        font-size: 1.6rem;
+    }
+
+    .imagen-producto, 
+    .imagen-categoria img {
+        height: 200px; /* Reducimos un poco la altura de las portadas */
+    }
+}
+
+/* 3. CELULARES PEQUEÑOS (Pantallas menores a 480px) */
+@media (max-width: 480px) {
+    /* Grillas: Una sola columna para máxima legibilidad */
+    .cuadricula-productos, 
+    .cuadricula-categorias,
+    .bienvenida {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-navegacion {
+        flex-direction: column; /* Menú en lista vertical */
+        align-items: center;
+    }
+
+    .seccion-contacto {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .boton-accion, .boton-enviar {
+        width: 100%; /* Botones grandes fáciles de tocar con el dedo */
+    }
+
+    .banner h1 {
+        font-size: 1.4rem;
+    }
+}
